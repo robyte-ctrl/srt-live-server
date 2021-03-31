@@ -1,3 +1,5 @@
+.history
+.vscode/*.log
+bin
 logs
 obj
-bin

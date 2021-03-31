@@ -22,7 +22,6 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-
 #ifndef _SLSPuller_INCLUDE_
 #define _SLSPuller_INCLUDE_
 
@@ -31,18 +30,16 @@
 /**
  * CSLSPuller
  */
-class CSLSPuller: public CSLSRelay
-{
-public :
-	CSLSPuller();
-    virtual ~CSLSPuller();
+class CSLSPuller : public CSLSRelay {
+public:
+  CSLSPuller();
+  virtual ~CSLSPuller();
 
-    virtual int  uninit();
-    virtual int  handler();
-    virtual int  get_stat_base(char *stat_base);
+  virtual int uninit();
+  virtual int handler();
+  virtual int get_stat_base(char *stat_base);
+
 protected:
-
 };
-
 
 #endif

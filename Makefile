@@ -1,16 +1,15 @@
-SHELL = /bin/sh
-MAIN_NAME=sls
-CLIENT_NAME=slc
+SHELL = zsh
+MAIN_NAME = sls
+CLIENT_NAME = slc
 INC_PATH = -I./ -I../ -I./slscore -I./include
-LIB_PATH =  -L ./lib
-LIBRARY_FILE = -lpthread -lz -lsrt
+LIB_PATH =  -L./lib -L/usr/lib64
+LIBRARY_FILE = -lpthread -lz -lsrt  -lstdc++
 BIN_PATH = ./bin
 
-DEBUG = -g
-CFLAGS += $(DEBUG)
+CXX = clang
+CXXFLAGS += -g -std=c++17 -Wno-invalid-offsetof
 
 LOG_PATH = ./logs
-
 
 OUTPUT_PATH = ./obj
 OBJS = $(OUTPUT_PATH)/SLSLog.o \
@@ -51,14 +50,14 @@ all: $(OBJS)
 	mkdir -p ${LOG_PATH}
 	mkdir -p ${OUTPUT_PATH}
 	mkdir -p ${BIN_PATH}
-	${CXX} -o ${BIN_PATH}/${MAIN_NAME}   srt-live-server.cpp $(OBJS) $(CFLAGS) $(INC_PATH) $(LIB_PATH) $(LIBRARY_FILE)
-	${CXX} -o ${BIN_PATH}/${CLIENT_NAME} srt-live-client.cpp $(OBJS) $(CFLAGS) $(INC_PATH) $(LIB_PATH) $(LIBRARY_FILE)
+	${CXX} -o ${BIN_PATH}/${MAIN_NAME}   srt-live-server.cpp $(OBJS) $(CXXFLAGS) $(INC_PATH) $(LIB_PATH) $(LIBRARY_FILE)
+	${CXX} -o ${BIN_PATH}/${CLIENT_NAME} srt-live-client.cpp $(OBJS) $(CXXFLAGS) $(INC_PATH) $(LIB_PATH) $(LIBRARY_FILE)
 	#******************************************************************************#
 	#                          Build successful !                                  #
 	#******************************************************************************#
 
 $(OUTPUT_PATH)/%.o: ./$(CORE_PATH)/%.cpp
-	${CXX} -c $(CFLAGS) $< -o $@ $(INC_FLAGS)
+	${CXX} -c $(CXXFLAGS) $< -o $@ $(INC_FLAGS)
 
 clean:
 	rm -f $(OUTPUT_PATH)/*.o

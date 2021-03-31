@@ -22,36 +22,25 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-
 #include <errno.h>
 #include <string.h>
 
-
-#include "SLSPlayer.hpp"
 #include "SLSLog.hpp"
+#include "SLSPlayer.hpp"
 
 /**
  * CSLSPlayer class implementation
  */
 
-CSLSPlayer::CSLSPlayer()
-{
-    m_is_write = 1;
+CSLSPlayer::CSLSPlayer() {
+  m_is_write = 1;
 
-    sprintf(m_role_name, "player");
+  sprintf(m_role_name, "player");
 }
 
-CSLSPlayer::~CSLSPlayer()
-{
+CSLSPlayer::~CSLSPlayer() {
 }
 
-
-
-int CSLSPlayer::handler()
-{
-    return handler_write_data() ;
+int CSLSPlayer::handler() {
+  return handler_write_data();
 }
-
-
-
-

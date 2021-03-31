@@ -22,7 +22,6 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-
 #ifndef _SLSSyncLock_INCLUDE_
 #define _SLSSyncLock_INCLUDE_
 
@@ -32,21 +31,18 @@
 /**
  * CSLSSyncClock
  */
-class CSLSSyncClock
-{
-public :
-	CSLSSyncClock();
-    ~CSLSSyncClock();
+class CSLSSyncClock {
+public:
+  CSLSSyncClock();
+  ~CSLSSyncClock();
 
-    int  wait(int64_t rts_tm_ms);
-    void set_jitter(int v);
+  int wait(int64_t rts_tm_ms);
+  void set_jitter(int v);
+
 private:
-    int64_t   m_begin_ms_rts;
-	int64_t   m_begin_ms_sys;
-	int       m_jitter;
-
+  int64_t m_begin_ms_rts;
+  int64_t m_begin_ms_sys;
+  int m_jitter;
 };
-
-
 
 #endif

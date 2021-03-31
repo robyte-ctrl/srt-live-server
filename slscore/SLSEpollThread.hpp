@@ -22,39 +22,35 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-
 #ifndef _SLSEpollThread_INCLUDE_
 #define _SLSEpollThread_INCLUDE_
 
-#include <srt/srt.h>
 #include "SLSThread.hpp"
+#include <srt/srt.h>
 
 #define MAX_SOCK_COUNT 1024
 
 /**
  * CSLSEpollThread , the base thread class
  */
-class CSLSEpollThread: public CSLSThread
-{
-public :
-	CSLSEpollThread();
-    ~CSLSEpollThread();
+class CSLSEpollThread : public CSLSThread {
+public:
+  CSLSEpollThread();
+  ~CSLSEpollThread();
 
-    virtual int     work();
+  virtual int work();
 
-    int init_epoll();
-    int uninit_epoll();
+  int init_epoll();
+  int uninit_epoll();
 
 protected:
-    virtual int     handler();
+  virtual int handler();
 
-    int         add_to_epoll(int fd, bool write) ;
+  int add_to_epoll(int fd, bool write);
 
-    int        m_eid;
-    SRTSOCKET  m_read_socks[MAX_SOCK_COUNT];
-    SRTSOCKET  m_write_socks[MAX_SOCK_COUNT];
-
+  int m_eid;
+  SRTSOCKET m_read_socks[MAX_SOCK_COUNT];
+  SRTSOCKET m_write_socks[MAX_SOCK_COUNT];
 };
-
 
 #endif

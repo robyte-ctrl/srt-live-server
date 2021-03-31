@@ -22,7 +22,6 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-
 #ifndef _SLSPusher_INCLUDE_
 #define _SLSPusher_INCLUDE_
 
@@ -31,17 +30,15 @@
 /**
  * CSLSPuller
  */
-class CSLSPusher: public CSLSRelay
-{
-public :
-	CSLSPusher();
-    virtual ~CSLSPusher();
+class CSLSPusher : public CSLSRelay {
+public:
+  CSLSPusher();
+  virtual ~CSLSPusher();
 
-    virtual int  handler();
-    virtual int  get_stat_base(char *stat_base);
+  virtual int handler();
+  virtual int get_stat_base(char *stat_base);
+
 protected:
-
 };
-
 
 #endif

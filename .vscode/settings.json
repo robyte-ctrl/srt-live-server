@@ -1,0 +1,11 @@
+{
+  "workbench.colorTheme": "Visual Studio Dark - C++",
+  "clang-tidy.compilerArgs": [
+    "-I./",
+    "-I../",
+    "-I./slscore",
+    "-I./include",
+    "-Wno-invalid-offsetof"
+  ],
+  "files.autoSave": "onFocusChange"
+}
